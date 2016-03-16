@@ -1,9 +1,15 @@
-This is your new Play application
-=================================
+Belay On - CS 428 Group Project
+===============================
 
-This file will be packaged with your application when using `activator dist`.
+Team Members
+============
+Kevin Reece
+Connor Smith
+Jordan Millard
+Caleb Tonkinson
+Joey Nelson
+Kyle Hadley
 
-There are several demonstration files available in this template.
 
 Controllers
 ===========
@@ -20,29 +26,7 @@ Controllers
 
   Handle HTTP requests for climb data
 
+
 Components
 ==========
 
-- Module.java:
-
-  Shows how to use Guice to bind all the components needed by your application.
-
-- Counter.java:
-
-  An example of a component that contains state, in this case a simple counter.
-
-- ApplicationTimer.java:
-
-  An example of a component that starts when the application starts and stops
-  when the application stops.
-
-Filters
-=======
-
-- Filters.java:
-
-  Creates the list of HTTP filters used by your application.
-
-- ExampleFilter.java
-
-  A simple filter that adds a header to every response.
