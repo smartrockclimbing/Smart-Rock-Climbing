@@ -2,12 +2,23 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# An example controller showing a sample home page
-GET     /                           controllers.HomeController.index
-# An example controller showing how to use dependency injection
-GET     /count                      controllers.CountController.count
-# An example controller showing how to write asynchronous code
-GET     /message                    controllers.AsyncController.message
+# Users
+PUT    /users/create            controllers.UsersController.createUser()
+POST   /users/login             controllers.UsersController.login()
+POST   /users/update            controllers.UsersController.updateUser()
+GET    /users/get               controllers.UsersController.getProfile()
+DELETE /users/delete            controllers.UsersController.deleteUser()
 
-# Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+# Climbs
+PUT    /climbs/create           controllers.ClimbsController.createClimb()
+GET    /climbs/get/id/:id       controllers.ClimbsController.getClimbById(id: Long)
+GET    /climbs/get/:start/:end  controllers.ClimbsController.getClimbsInRange(start, end)
+GET    /climbs/get/all/         controllers.ClimbsController.getAllClimbs(id: Long)
+DELETE /climbs/delete/:id       controllers.ClimbsController.deleteClimb(id: Long)
+
+# Routes
+PUT    /routes/create           controllers.RoutesController.createRoute()
+GET    /routes/get/id/:id       controllers.RoutesController.getRouteById(id: Long)
+GET    /routes/get/gps/:id      controllers.RoutesController.getRouteByGPS(location)
+GET    /routes/get/all/         controllers.RoutesController.getAllRoutes()
+DELETE /routes/delete/:id       controllers.RoutesController.deleteRoute(id: Long)
