@@ -21,21 +21,30 @@ public class UserController extends Controller{
 
     // Returns JSON in response
     // User info contained in POST data
-    public Result updateUser(){
-        String string = "{JSON response goes here}";
+    public Result updateUser(Long userId){
+        //        Long climbIdentifier = Long.parseUnsignedLong(climbId);
+        //        String l1Str = Long.toUnsignedString(climbIdentifier);
+
+        String string = "{user_id: " + userId.toString() + "}";
         return ok(string);
     }
 
     // Returns JSON in response
-    public Result getProfile(){
-        String string = "{JSON response goes here}";
+    public Result getProfile(Long userId){
+        //        Long climbIdentifier = Long.parseUnsignedLong(climbId);
+        //        String l1Str = Long.toUnsignedString(climbIdentifier);
+
+        String string = "{user_id: " + userId.toString() + "}";
         return ok(string);
     }
 
     // Returns result in response
-    public Result deleteUser(){
-        String string = "{JSON response goes here}";
-        return ok(string);
-    }
+    public Result deleteUser(Long userId){
+    //        Long climbIdentifier = Long.parseUnsignedLong(climbId);
+    //        String l1Str = Long.toUnsignedString(climbIdentifier);
+
+    String string = "{user_id: " + userId.toString() + "}";
+    return ok(string);
+}
 
 }

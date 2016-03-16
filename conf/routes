@@ -3,22 +3,22 @@
 # ~~~~
 
 # Users
-PUT    /users/create              controllers.UserController.createUser()
-POST   /users/login               controllers.UserController.login()
-POST   /users/update              controllers.UserController.updateUser()
-GET    /users/get                 controllers.UserController.getProfile()
-DELETE /users/delete              controllers.UserController.deleteUser()
+POST   /users/                     controllers.UserController.createUser()
+POST   /users/login                controllers.UserController.login()
+PUT    /users/:id                  controllers.UserController.updateUser(id: Long)
+GET    /users/:id                  controllers.UserController.getProfile(id: Long)
+DELETE /users/:id                  controllers.UserController.deleteUser(id: Long)
 
 # Climbs
-PUT    /climbs/create             controllers.ClimbController.createClimb()
-GET    /climbs/get/id/:id         controllers.ClimbController.getClimbById(id: Long)
-GET    /climbs/get/:start/:end    controllers.ClimbController.getClimbsInRange(start, end)
-GET    /climbs/get/all/           controllers.ClimbController.getAllClimbs()
-DELETE /climbs/delete/:id         controllers.ClimbController.deleteClimb(id: Long)
+POST   /climbs/                   controllers.ClimbController.createClimb()
+GET    /climbs/:id                controllers.ClimbController.getClimbById(id: Long)
+GET    /climbs/:start/:end        controllers.ClimbController.getClimbsInRange(start, end)
+GET    /climbs/                   controllers.ClimbController.getAllClimbs()
+DELETE /climbs/:id                controllers.ClimbController.deleteClimb(id: Long)
 
 # Routes
-PUT    /routes/create             controllers.RouteController.createRoute()
-GET    /routes/get/id/:id         controllers.RouteController.getRouteById(id: Long)
-GET    /routes/get/gps/:location  controllers.RouteController.getRouteByGPS(location: Long)
-GET    /routes/get/all/           controllers.RouteController.getAllRoutes()
-DELETE /routes/delete/:id         controllers.RouteController.deleteRoute(id: Long)
+POST   /routes/                   controllers.RouteController.createRoute()
+GET    /routes/:id                controllers.RouteController.getRouteById(id: Long)
+GET    /routes/:location          controllers.RouteController.getRouteByGPS(location: Long)
+GET    /routes/                   controllers.RouteController.getAllRoutes()
+DELETE /routes/:id                controllers.RouteController.deleteRoute(id: Long)
