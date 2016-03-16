@@ -8,18 +8,17 @@ There are several demonstration files available in this template.
 Controllers
 ===========
 
-- HomeController.java:
+- UserController.java:
 
-  Shows how to handle simple HTTP requests.
+  Handle HTTP requests for users.
 
-- AsyncController.java:
+- RouteController.java:
 
-  Shows how to do asynchronous programming when handling a request.
+  Handle HTTP requests for routes.
 
-- CountController.java:
+- ClimbController.java:
 
-  Shows how to inject a component into a controller and use the component when
-  handling requests.
+  Handle HTTP requests for climb data
 
 Components
 ==========
