@@ -3,12 +3,11 @@ package controllers;
 import play.mvc.Controller;
 import play.mvc.Result;
 
-// TODO These are just stubs
 public class ClimbController extends Controller {
     // Returns new climb id in response
     // Climb info contained in POST data
     public Result createClimb(){
-        String string = "{JSON response goes here}";
+        String string = "Climb Created";
         return ok(string);
     }
 
@@ -18,21 +17,21 @@ public class ClimbController extends Controller {
 //        Long climbIdentifier = Long.parseUnsignedLong(climbId);
 //        String l1Str = Long.toUnsignedString(climbIdentifier);
 
-        String string = "{id: " + climbId.toString() + "}";
+        String string = "getClimbById\n{id: " + climbId.toString() + "}";
         return ok(string);
     }
 
     // Returns JSON in response
     // Only climbs for authenticated user are returned
     public Result getClimbsInRange(String start, String end){
-        String string = "{JSON response goes here}";
+        String string = "getClimbsInRange\n{start: "+ start + ",end: " + end + "}";
         return ok(string);
     }
 
     // Returns JSON in response
     // Only climbs for authenticated user are returned
     public Result getAllClimbs(){
-        String string = "{JSON response goes here}";
+        String string = "GetAllClimbs";
         return ok(string);
     }
 
@@ -42,7 +41,7 @@ public class ClimbController extends Controller {
 //        Long climbIdentifier = Long.parseUnsignedLong(climbId);
 //        String l1Str = Long.toUnsignedString(climbIdentifier);
 
-        String string = "{id: " + climbId.toString() + "}";
+        String string = "deleteClimb\n{id: " + climbId.toString() + "}";
         return ok(string);
     }
 }

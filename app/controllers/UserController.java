@@ -8,14 +8,14 @@ public class UserController extends Controller{
     // Sets user id in session
     // User info contained in POST data
     public Result createUser(){
-        String string = "{JSON response goes here}";
+        String string = "User Created";
         return ok(string);
     }
 
     // Sets user id in session
     // Authentication info contained in POST data
     public Result login(){
-        String string = "{JSON response goes here}";
+        String string = "Logged in";
         return ok(string);
     }
 
@@ -25,7 +25,7 @@ public class UserController extends Controller{
         //        Long climbIdentifier = Long.parseUnsignedLong(climbId);
         //        String l1Str = Long.toUnsignedString(climbIdentifier);
 
-        String string = "{user_id: " + userId.toString() + "}";
+        String string = "Updated user \n{user_id: " + userId.toString() + "}";
         return ok(string);
     }
 
@@ -34,7 +34,7 @@ public class UserController extends Controller{
         //        Long climbIdentifier = Long.parseUnsignedLong(climbId);
         //        String l1Str = Long.toUnsignedString(climbIdentifier);
 
-        String string = "{user_id: " + userId.toString() + "}";
+        String string = "getProfile called\n{user_id: " + userId.toString() + "}";
         return ok(string);
     }
 
@@ -43,7 +43,7 @@ public class UserController extends Controller{
     //        Long climbIdentifier = Long.parseUnsignedLong(climbId);
     //        String l1Str = Long.toUnsignedString(climbIdentifier);
 
-    String string = "{user_id: " + userId.toString() + "}";
+    String string = "deleteUser called\n{user_id: " + userId.toString() + "}";
     return ok(string);
 }
 

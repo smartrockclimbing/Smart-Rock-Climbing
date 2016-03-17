@@ -10,7 +10,7 @@ public class RouteController extends Controller {
     // Route info contained in POST data
     // Only admins can create routes
     public Result createRoute(){
-        String string = "{JSON response goes here}";
+        String string = "Route Created";
         return ok(string);
     }
 
@@ -19,22 +19,22 @@ public class RouteController extends Controller {
     //        Long climbIdentifier = Long.parseUnsignedLong(climbId);
     //        String l1Str = Long.toUnsignedString(climbIdentifier);
 
-        String string = "{route_id: " + routeId.toString() + "}";
+        String string = "Got route by id\n{route_id: " + routeId.toString() + "}";
         return ok(string);
     }
 
     // Returns JSON in response
-    public Result getRouteByGPS(Long location){
+    public Result getRouteByGPS(String lat, String longitude){
     //        Long climbIdentifier = Long.parseUnsignedLong(climbId);
     //        String l1Str = Long.toUnsignedString(climbIdentifier);
 
-        String string = "{location: " + location.toString() + "}";
+        String string = "Got route by coordinates\nlatitude: " + lat  + ", longitude: " + longitude + " }";
         return ok(string);
     }
 
     // Returns JSON in response
     public Result getAllRoutes(){
-        String string = "{JSON response goes here}";
+        String string = "Got all routes!";
         return ok(string);
     }
 
@@ -44,7 +44,7 @@ public class RouteController extends Controller {
     //        Long climbIdentifier = Long.parseUnsignedLong(climbId);
     //        String l1Str = Long.toUnsignedString(climbIdentifier);
 
-        String string = "{route_id: " + routeId.toString() + "}";
+        String string = "Delete route\n{route_id: " + routeId.toString() + "}";
         return ok(string);
     }
 }
