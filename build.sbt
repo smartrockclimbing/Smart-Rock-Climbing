@@ -1,4 +1,4 @@
-name := """helloworld"""
+name := """ClimbSmart"""
 
 version := "1.0-SNAPSHOT"
 
