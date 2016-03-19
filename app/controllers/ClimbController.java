@@ -3,6 +3,18 @@ package controllers;
 import play.mvc.Controller;
 import play.mvc.Result;
 
+import java.util.List;
+
+import models.Climb;
+
+import javax.persistence.*;
+
+import play.db.jpa.JPA;
+import play.db.jpa.Transactional;
+import play.libs.Json;
+
+import com.fasterxml.jackson.databind.JsonNode;
+
 public class ClimbController extends Controller {
     // Returns new climb id in response
     // Climb info contained in POST data
@@ -30,9 +42,15 @@ public class ClimbController extends Controller {
 
     // Returns JSON in response
     // Only climbs for authenticated user are returned
+    @Transactional
     public Result getAllClimbs(){
-        String string = "GetAllClimbs";
-        return ok(string);
+        EntityManager em = JPA.em();
+        Query query = em.createQuery("SELECT e FROM Climb e");
+        List<Climb> results = query.getResultList();
+        JsonNode json = Json.toJson(results);
+
+        // String string = "GetAllClimbs";
+        return ok(json);
     }
 
     // Returns result in response
