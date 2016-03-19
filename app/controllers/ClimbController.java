@@ -8,6 +8,11 @@ import java.util.List;
 import models.Climb;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Path;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 import play.db.jpa.JPA;
 import play.db.jpa.Transactional;
@@ -25,12 +30,19 @@ public class ClimbController extends Controller {
 
     // Returns JSON in response
     // Only climbs for authenticated user are returned
+    @Transactional
     public Result getClimbById(Long climbId){
-//        Long climbIdentifier = Long.parseUnsignedLong(climbId);
-//        String l1Str = Long.toUnsignedString(climbIdentifier);
+        // Long climbIdentifier = Long.parseUnsignedLong(climbId);
+        // String l1Str = Long.toUnsignedString(climbIdentifier);
 
-        String string = "getClimbById\n{id: " + climbId.toString() + "}";
-        return ok(string);
+        CriteriaBuilder cb = JPA.em().getCriteriaBuilder();
+        CriteriaQuery<Climb> cq = cb.createQuery(Climb.class);
+        Root<Climb> climbRoot = cq.from(Climb.class);
+        cq.where(cb.equal(climbRoot.get("id"), climbId));
+        List<Climb> results = JPA.em().createQuery(cq).getResultList();
+
+        JsonNode json = Json.toJson(results);
+        return ok(json);
     }
 
     // Returns JSON in response
