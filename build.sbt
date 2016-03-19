@@ -6,11 +6,12 @@ lazy val root = (project in file(".")).enablePlugins(PlayJava)
 
 scalaVersion := "2.11.7"
 
-
 libraryDependencies ++= Seq(
   javaJdbc,
   "mysql" % "mysql-connector-java" % "5.1.38",
   javaJpa,
+  "org.hibernate" % "hibernate-entitymanager" % "4.3.9.Final",
+  "org.hibernate" % "hibernate-jpamodelgen" % "4.3.9.Final",
   cache,
   javaWs
 )
