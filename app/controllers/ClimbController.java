@@ -3,9 +3,13 @@ package controllers;
 import play.mvc.Controller;
 import play.mvc.Result;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import models.Climb;
+import models.ClimbPoint;
 
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -23,9 +27,37 @@ import com.fasterxml.jackson.databind.JsonNode;
 public class ClimbController extends Controller {
     // Returns new climb id in response
     // Climb info contained in POST data
+    @Transactional
     public Result createClimb(){
-        String string = "Climb Created";
-        return ok(string);
+        System.out.println("wat");
+
+        List<ClimbPoint> climb_points = new ArrayList<ClimbPoint>();
+        Long id = 0L;
+        Double x = 0.0;
+        Double y = 0.0;
+        Double z = 0.0;
+        Random r = new Random();
+        Date time = new Date();
+
+        for (int i = 0; i < 10; i++) {
+            ClimbPoint newPoint = new ClimbPoint(id, x, y, z, time);
+            climb_points.add(newPoint);
+
+            id++;
+            x += r.nextDouble()*0.2 - 0.1;
+            y += r.nextDouble()*0.2 - 0.1;
+            z += r.nextDouble()*0.2 - 0.1;
+            time = new Date();
+        }
+
+        Long route_id = 0L;
+        Long user_id = 0L;
+        Date start_time = new Date();
+        Date end_time = new Date();
+
+        Climb newClimb = new Climb(route_id, user_id, start_time, end_time, climb_points);
+        JPA.em().persist(newClimb);
+        return ok("created climb");
     }
 
     // Returns JSON in response
